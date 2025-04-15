@@ -1,0 +1,12 @@
+var Storm = function () {};
+Storm.prototype.precip = "rain";
+
+var WinterStorm = function () {};
+WinterStorm.prototype = new Storm();
+WinterStorm.prototype.precip = "snow";
+
+var bob = new WinterStorm();
+console.log(bob.precip);
+
+let x = 0 && "lws";
+console.log(x);
