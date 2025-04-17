@@ -45,3 +45,9 @@ console.log(reversedStr);
 // শেষ লাইনে বলা হয়েছে i এর মান ১ কমিয়ে দাও। এভাবে করে যখন i=০ হয়ে যাচ্ছে তখন লুপ বন্ধ হয়ে যাচ্ছে।
 
 // Task -6
+
+for (let i = 1; i <= 2; i++) {
+  for (let j = 1; j <= 3; j++) {
+    console.log("Row", i, "Coll", j);
+  }
+}
