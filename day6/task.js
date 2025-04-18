@@ -1,115 +1,94 @@
-// ========define a function=========
-function doSomething() {
-  console.log("Prining....");
+console.log("====================================");
+console.log("Task.js");
+console.log("====================================");
+
+// Celsius to Fahrenheit
+function Fahrenheit(Celsius) {
+  console.log(Celsius * (9 / 5) + 32);
 }
 
-// call or invoke function
-// কল না করলে ফাংশন কাজ করবেনা।
-doSomething();
+Fahrenheit("This is Fahrenheit", 20);
 
-// ==========Functon as an Expression=======
-let iamFunction = function () {
-  console.log("Print me");
-};
-
-console.log(iamFunction);
-// Output=====
-// ƒ () {
-//   console.log("Print me");
-// }
-
-// =======Perameters and Argument===========
-function Perameter(a, b) {
-  let numberr = a + b;
-  return numberr;
-}
-// =========this is expresstion==========
-let result = Perameter(20, 50);
-
-function double(x) {
-  return 2 * x;
+// compare number
+function compareNum(num1, num2) {
+  if (num1 > num2) {
+    console.log("num1 bigger", num1);
+  } else if (num2 > num1) {
+    console.log("num2 bigger", num2);
+  }
 }
 
-console.log("duble value is", double(result));
+compareNum(20, 986);
 
-// =========default perameters=========
-function calc(a, b) {
-  return 2 * (a + b);
+// IsPalindrome
+function IsPalindrome(str) {
+  for (let i = 0; i < str.length / 2; i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      console.log("Mismatch");
+    }
+    return false;
+  }
+  return true;
 }
 
-const resVer = calc(2);
-console.log(resVer); // NaN দেখাবে কারন b এর ভালু সেট করা হয়নাই
-// মুলত b এখানে undefined আছে তাই
-// (a + b) = 2 + undefined = NaN । এখন
-// ২ যখন undefined এর সাথে গুন হবে দেখাবে NaN
+console.log("Yes it is Palindrome", IsPalindrome("sir"));
 
-function calce(a, b = 0) {
-  return 2 * (a + b);
+// Find Factorial of a Number
+function factorialNum(n) {
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+  return result;
 }
 
-const resVerr = calce(2);
-console.log("Actual Default value", resVerr);
+console.log(factorialNum(5));
 
-// Rest Perameter==========
-function calculateThis(a, b) {
-  console.log(a, b);
+// Task-5 count Vowels
+function countVawels(srting) {
+  let vowels = "aeiou";
+  let count = 0;
+  for (let i = 0; i < srting.length; i++) {
+    if (vowels.includes(srting[i])) {
+      count++;
+    }
+  }
+  console.log(count);
 }
 
-calculateThis(1, 2, 3, 4, 5, 6, 7, 8, 9);
-// এখানে এখন লগ এ দেখাচ্ছে 1, 2 কিন্তু বাকি গুলা গেল কই?
-//বাকি গুলা দেখতে ...rest এভাবে লিখতে হবে আর শেষে লিখতে হবে।
-function calculateThiss(a, b, ...rest) {
-  console.log(a, b, rest);
-}
-// ...rest এটা একটা এরে রিটান করে
-calculateThiss(1, 2, 3, 4, 5, 6, 7, 8, 9);
+countVawels("amul");
 
-//  1 2 [3, 4, 5, 6, 7, 8, 9] এরোকম।
-
-//============ Nested function=================
-function outer() {
-  function inner() {}
-}
-// inner() কে সুধু মাত্র outer function এর মদ্ধেই কল করতে পারব তার বাইরে করলে কাজ করবেনা।
-// যদি আমি রিটান করে দেই outer থেকে তাইলে ব্যাবহার করা যাবে
-// Example
-function outerr() {
-  return function innerr() {};
-}
-const innerFunc = outerr();
-console.log(innerFunc());
-// এভাবে।
-
-// ==============Call back function===============
-function foo(func) {
-  console.log("foo");
-  func();
+// task-6  Capitalize the First Letter
+function UpperCaseFunc(strr) {
+  let words = strr.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i];
+    words[i] = word[0].toUpperCase() + word.slice(1);
+  }
+  console.log(words.join(" "));
 }
 
-foo(function () {
-  console.log("function");
-});
-// এখানে নিচের perameter হিসেবে পুরো ফাংশন দিয়ে দেওয়া হয়ছে, annonymous function
-// function তো কল না করলে কাজ করেনা তাই, foo ফাংশনে পেরামিটারকে কল কর হয়েছে।
+UpperCaseFunc("Hi how are you dear?");
 
-// ===============Pure function===============
-let greetings = "Hi";
+// Task-7 Use an IIFE to Print “Hello, JavaScript!”
+(function (item) {
+  console.log(item);
+})("Hellow");
 
-function greeter(name) {
-  return greetings + name;
+// Task-8 Simple Callback Function
+function callback() {
+  console.log("This is main function");
 }
 
-console.log(greeter("Shuvo"));
-console.log(greeter("Shuvo"));
-greetings = "Hola";
-console.log(greeter("Shuvo"));
-console.log(greeter("Shuvo"));
-console.log(greeter("Shuvo"));
-// // output
-// HiShuvo
-// HiShuvo
-// HolaShuvo
-// HolaShuvo
-// HolaShuvo
-// Defination: এইযে বাইরে থেকে ফাংশনের ভেলু বা কাজ পালটিয়ে দেওয়া গেল
-// এটা pure ফাংশন না। pure এর কোন কিছুই বাইরে থেকে বদলানো যাবেনা।
+callback(function () {});
+
+// Task-9
+
+function f1() {
+  console.log("This is f1");
+}
+function f2() {
+  f1();
+  console.log("This is f2");
+}
+f2();
