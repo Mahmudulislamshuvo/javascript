@@ -83,7 +83,6 @@ function callback() {
 callback(function () {});
 
 // Task-9
-
 function f1() {
   console.log("This is f1");
 }
@@ -92,3 +91,13 @@ function f2() {
   console.log("This is f2");
 }
 f2();
+
+//Task-10
+function f1() {}
+function f2() {}
+function f3() {
+  f1();
+}
+f2();
+f3();
+f1();
