@@ -76,8 +76,9 @@ console.log(variable12());
 
 function incrementBtn() {
   let count = 0;
-  document.getElementsByClassName("btn").addEventListener("click", function () {
+  document.getElementById("btn").addEventListener("click", function () {
     count++;
     console.log(`Button click ${count} times`);
   });
 }
+incrementBtn();
