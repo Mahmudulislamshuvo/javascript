@@ -68,3 +68,63 @@ const food = {
 // console.log(food.getdesc()());
 const descfunc = food.getdesc();
 console.log(descfunc());
+
+function greating() {
+  console.log(`Hello ${this.name} belongs to ${this.address}`);
+}
+
+const user = {
+  name: "Shvuo",
+  address: "Dhaka",
+};
+
+greating.call(user);
+// =======call function========
+const likes = function (hobby, honny2) {
+  console.log(`${this.name} likes those ${hobby},${honny2} `);
+};
+
+const person = {
+  name: "Shuvo",
+};
+
+likes.call(person, "travel", "hiking");
+// ========apply() function========
+const hobbiesApply = ["Hiking with Sumona", "Traveling she Around the world"];
+likes.apply(person, hobbiesApply);
+
+// =======bind method
+
+const likess = function (hobby, honny2) {
+  console.log(`${this.name} likes those ${hobby},${honny2} `);
+};
+const prson = {
+  name: "Sumona",
+};
+
+const SumonaLkes = likess.bind(prson, "Ice-cream", "Travel");
+SumonaLkes();
+
+const Cartoon = function (name, animal) {
+  this.name = name;
+  this.animal = animal;
+  this.log = function () {
+    console.log(this.name + " is a " + this.animal);
+  };
+};
+
+const tomCartoon = new Cartoon("Tom", "Cat");
+tomCartoon.log();
+
+const jerryCartoon = new Cartoon("Jerry", "Mouse");
+jerryCartoon.log();
+
+const obj = {
+  name: "Bob",
+  greet: function () {
+    console.log(`${this.name}`);
+  },
+};
+
+const greetfunc = obj.greet;
+greetfunc.call(obj);
