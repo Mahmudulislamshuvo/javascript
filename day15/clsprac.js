@@ -170,3 +170,69 @@ console.log(numbers); // [4, 5, 3, 4, 5, 6, 7, 8, 9]
 const array = [1, 2, 3, 4, 5, 6, 7];
 array.copyWithin(0, 3, 6);
 console.log(array); //[4, 5, 6, 4, 5, 6, 7];
+
+const flatArr = [1, 2, 3, 4, 5, [6, 7, 8]];
+console.log(flatArr.flat());
+
+const deepArray = [1, 2, [3, 4, [5, [4, 6, [4, 8, [7, 6, [7]]]]]]];
+const flatArray = deepArray.flat(Infinity);
+console.log("jkhi", flatArray);
+
+const employees = [
+  { name: "John Smith", post: "Manager", department: "Sales" },
+  { name: "Emma Johnson", post: "Sales Executive", department: "Sales" },
+  { name: "Noah Williams", post: "Sales Coordinator", department: "Sales" },
+  { name: "Olivia Brown", post: "Sales Analyst", department: "Sales" },
+  { name: "Liam Garcia", post: "Software Engineer", department: "IT" },
+  { name: "Ava Martinez", post: "Frontend Developer", department: "IT" },
+  { name: "Elijah Anderson", post: "Backend Developer", department: "IT" },
+  { name: "Sophia Thomas", post: "QA Tester", department: "IT" },
+  { name: "William Taylor", post: "Accountant", department: "Finance" },
+  { name: "Isabella Moore", post: "Financial Analyst", department: "Finance" },
+  { name: "James Jackson", post: "Auditor", department: "Finance" },
+  { name: "Mia White", post: "HR Executive", department: "Human Resources" },
+  { name: "Benjamin Harris", post: "Recruiter", department: "Human Resources" },
+  { name: "Lucas Thompson", post: "HR Manager", department: "Human Resources" },
+];
+
+const groupby = Object.groupBy(employees, ({ department }) => department);
+console.log(groupby);
+
+const employeess = [
+  { name: "John Smith", department: "Sales", salary: 3200 },
+  { name: "Emma Johnson", department: "Sales", salary: 5400 },
+  { name: "Noah Williams", department: "Sales", salary: 2800 },
+  { name: "Olivia Brown", department: "Sales", salary: 6200 },
+
+  { name: "Liam Garcia", department: "IT", salary: 7000 },
+  { name: "Ava Martinez", department: "IT", salary: 4700 },
+  { name: "Elijah Anderson", department: "IT", salary: 3500 },
+  { name: "Sophia Thomas", department: "IT", salary: 5200 },
+
+  { name: "William Taylor", department: "Finance", salary: 4100 },
+  { name: "Isabella Moore", department: "Finance", salary: 5800 },
+  { name: "James Jackson", department: "Finance", salary: 3900 },
+
+  { name: "Mia White", department: "Human Resources", salary: 4300 },
+  { name: "Benjamin Harris", department: "Human Resources", salary: 5600 },
+  { name: "Charlotte Martin", department: "Human Resources", salary: 3600 },
+  { name: "Lucas Thompson", department: "Human Resources", salary: 6100 },
+];
+
+const moreThen5KsalarGroup = Object.groupBy(employeess, ({ salary }) => {
+  return salary >= 5000 ? "More then 5k" : "Less then 5k";
+});
+
+console.log(moreThen5KsalarGroup);
+
+// toReverse()
+// toSorted()
+// toSpliced()
+// with()
+
+const numbre2 = [1, 2, 3, 4, 5, 6, 7];
+const newArray = numbre2.with(2, 10);
+console.log(newArray);
+
+const anotherArr = numbre2.with(-2, 90);
+console.log(anotherArr);
