@@ -516,6 +516,7 @@ const ccustomers = [
     gender: "male",
     married: false,
     purchased: ["Laptop", "Mouse", "Keyboard"],
+    totalCost: 1250, // Laptop - 1000, Mouse - 100, Keyboard - 150
   },
   {
     firstname: "Sarah",
@@ -524,6 +525,7 @@ const ccustomers = [
     gender: "female",
     married: true,
     purchased: ["Phone", "Charger"],
+    totalCost: 820, // Phone - 800, Charger - 20
   },
   {
     firstname: "Michael",
@@ -532,14 +534,16 @@ const ccustomers = [
     gender: "male",
     married: true,
     purchased: ["Washing Machine", "Vacuum Cleaner"],
+    totalCost: 1300, // Washing Machine - 800, Vacuum Cleaner - 500
   },
   {
     firstname: "Emily",
     lastname: "Johnson",
-    age: 7,
+    age: 23,
     gender: "female",
     married: false,
     purchased: ["Shoes", "Bag", "Perfume"],
+    totalCost: 380, // Shoes - 120, Bag - 150, Perfume - 110
   },
 ];
 
@@ -560,3 +564,50 @@ const youngCustomerIndex = ccustomers.findLastIndex((customer) => {
 });
 
 console.log(youngCustomerIndex); //index 3
+
+const TotalExpence = ccustomers
+  .filter((customer) => {
+    return customer.married;
+  })
+  .map((customer) => {
+    return customer.totalCost;
+  })
+  .reduce((ager, kiAshlo) => {
+    return ager + kiAshlo;
+  }, 0);
+
+console.log("total expence married customers", TotalExpence);
+
+const numb = [1, 3, 4, 5, 6, 7];
+
+let sum = 0;
+numb.forEach((items) => {
+  sum += items;
+});
+
+console.log(sum);
+
+const itarator = numb.entries();
+console.log(itarator.next().value); //[0, 1]
+console.log(itarator.next().value); //[1, 3]
+
+for (const [index, element] of itarator) {
+  console.log(index, element);
+}
+
+// 2 4
+// 3 5
+// 4 6
+// 5 7
+
+const itarator2 = numb.values();
+
+for (const value of itarator2) {
+  console.log(value);
+}
+// ভেলু গুলা রিটার্ন করে দিবে।
+
+const arr = [1, 2, 3];
+
+const result = arr.flatMap((num) => [num, num * 2]);
+console.log(result); // [1, 2, 2, 4, 3, 6]
