@@ -236,3 +236,327 @@ console.log(newArray);
 
 const anotherArr = numbre2.with(-2, 90);
 console.log(anotherArr);
+
+// array like
+
+const arrayLike = {
+  0: "apple",
+  1: "banana",
+  2: "cherry",
+  length: 3,
+};
+
+console.log(arrayLike[0]); // apple
+console.log(arrayLike.length); // 3
+
+function checkArray() {
+  console.log("not array it aray-like", arguments);
+  const converArray = [...arguments];
+  console.log("converted array", converArray);
+  converArray.forEach((item) => console.log(item));
+}
+
+checkArray(2, 53, 57);
+
+// anothrer way to conver
+const arraylike = document.getElementsByTagName("li");
+const convertedArray = Array.from(arraylike);
+console.log(convertedArray);
+
+const collectionPromise = Array.fromAsync(document.getElementsByTagName("li"));
+console.log("Converted Array", collectionPromise);
+
+// collectionPromise.then((value) => console.log(value));
+
+// const rett = Array.fromAsync({
+//   0: Promise.resolve("tapaScript"),
+//   1: Promise.resolve("Google"),
+//   2: Promise.resolve("Apple"),
+//   length: 3,
+// }).then((value) => console.log(value));
+
+console.log(ret);
+
+// of()
+const a = new Array(2, 3, 4, 5, 6);
+const b = [9, 10, 11];
+
+const cad = Array.of(2, true, false, "shuvo", [3, 5, 8]);
+console.log(cad);
+// =======Array ittarator method======
+
+const customers = [
+  {
+    id: 1,
+    name: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    phone: "+1-202-555-0123",
+    address: {
+      street: "123 Maple St",
+      city: "New York",
+      zip: "10001",
+    },
+    isMember: true,
+    joinDate: "2022-03-15",
+    totalOrders: 12,
+    lastOrderAmount: 230.5,
+  },
+  {
+    id: 2,
+    name: "Bob Smith",
+    email: "bob.smith@example.com",
+    phone: "+1-202-555-0456",
+    address: {
+      street: "456 Oak Ave",
+      city: "Los Angeles",
+      zip: "90001",
+    },
+    isMember: false,
+    joinDate: "2023-01-12",
+    totalOrders: 3,
+    lastOrderAmount: 79.99,
+  },
+  {
+    id: 3,
+    name: "Clara Lee",
+    email: "clara.lee@example.com",
+    phone: "+1-202-555-0789",
+    address: {
+      street: "789 Pine Rd",
+      city: "Chicago",
+      zip: "60601",
+    },
+    isMember: true,
+    joinDate: "2021-08-20",
+    totalOrders: 25,
+    lastOrderAmount: 450.0,
+  },
+  {
+    id: 4,
+    name: "David Garcia",
+    email: "david.garcia@example.com",
+    phone: "+1-202-555-0110",
+    address: {
+      street: "321 Elm St",
+      city: "Houston",
+      zip: "77001",
+    },
+    isMember: true,
+    joinDate: "2022-06-05",
+    totalOrders: 10,
+    lastOrderAmount: 120.75,
+  },
+  {
+    id: 5,
+    name: "Emily Brown",
+    email: "emily.brown@example.com",
+    phone: "+1-202-555-0147",
+    address: {
+      street: "654 Cedar Blvd",
+      city: "Phoenix",
+      zip: "85001",
+    },
+    isMember: false,
+    joinDate: "2023-10-01",
+    totalOrders: 1,
+    lastOrderAmount: 35.99,
+  },
+  {
+    id: 6,
+    name: "Frank Wilson",
+    email: "frank.wilson@example.com",
+    phone: "+1-202-555-0177",
+    address: {
+      street: "987 Birch Ln",
+      city: "Philadelphia",
+      zip: "19101",
+    },
+    isMember: true,
+    joinDate: "2020-11-30",
+    totalOrders: 33,
+    lastOrderAmount: 320.4,
+  },
+  {
+    id: 7,
+    name: "Grace Taylor",
+    email: "grace.taylor@example.com",
+    phone: "+1-202-555-0199",
+    address: {
+      street: "159 Walnut Ct",
+      city: "San Antonio",
+      zip: "78201",
+    },
+    isMember: false,
+    joinDate: "2023-04-10",
+    totalOrders: 4,
+    lastOrderAmount: 99.9,
+  },
+];
+
+const totalOrders = customers.filter((customers) => {
+  return customers.totalOrders >= 5;
+});
+
+const customerDetails = [
+  {
+    customerId: 103,
+    firstName: "Robert",
+    lastName: "Johnson",
+    gender: "Male",
+    email: "robert.johnson@example.com",
+    phone: "+1-202-555-0133",
+    address: "789 Pine Road, Houston, TX",
+    city: "Houston",
+    state: "TX",
+    country: "USA",
+    postalCode: "77001",
+    isMember: true,
+    totalOrders: 22,
+    preferredPaymentMethod: "Debit Card",
+  },
+  {
+    customerId: 104,
+    firstName: "Emily",
+    lastName: "Davis",
+    gender: "Female",
+    email: "emily.davis@example.com",
+    phone: "+1-202-555-0177",
+    address: "321 Birch Street, Phoenix, AZ",
+    city: "Phoenix",
+    state: "AZ",
+    country: "USA",
+    postalCode: "85001",
+    isMember: true,
+    totalOrders: 5,
+    preferredPaymentMethod: "Bank Transfer",
+  },
+  {
+    customerId: 105,
+    firstName: "Michael",
+    lastName: "Brown",
+    gender: "Male",
+    email: "michael.brown@example.com",
+    phone: "+1-202-555-0155",
+    address: "654 Cedar Lane, Los Angeles, CA",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    postalCode: "90001",
+    isMember: false,
+    totalOrders: 3,
+    preferredPaymentMethod: "Cash on Delivery",
+  },
+  {
+    customerId: 106,
+    firstName: "Olivia",
+    lastName: "Wilson",
+    gender: "Female",
+    email: "olivia.wilson@example.com",
+    phone: "+1-202-555-0144",
+    address: "987 Maple Ave, Seattle, WA",
+    city: "Seattle",
+    state: "WA",
+    country: "USA",
+    postalCode: "98101",
+    isMember: true,
+    totalOrders: 18,
+    preferredPaymentMethod: "Credit Card",
+  },
+];
+
+customerDetails.map((items) => {
+  let title = "";
+  if (items.gender === "Male") {
+    title = "Mr";
+  } else if (items.gender === "Female") {
+    title = "Mrs";
+  }
+  items["fullname"] = `${title} ${items.firstName} ${items.lastName}`;
+  return items;
+});
+
+const customersss = [
+  {
+    firstname: "John",
+    lastname: "Doe",
+    age: 28,
+    purchased: ["Laptop", "Mouse", "Keyboard"],
+  },
+  {
+    firstname: "Sarah",
+    lastname: "Smith",
+    age: 34,
+    purchased: ["Phone", "Charger"],
+  },
+  {
+    firstname: "Michael",
+    lastname: "Brown",
+    age: 42,
+    purchased: ["Washing Machine", "Vacuum Cleaner"],
+  },
+  {
+    firstname: "Emily",
+    lastname: "Johnson",
+    age: 9,
+    purchased: ["Shoes", "Bag", "Perfume"],
+  },
+];
+
+const IsanyCustomerless10 = customersss.some((customer) => {
+  return customer.age < 10;
+});
+
+console.log(IsanyCustomerless10);
+
+const ccustomers = [
+  {
+    firstname: "John",
+    lastname: "Doe",
+    age: 28,
+    gender: "male",
+    married: false,
+    purchased: ["Laptop", "Mouse", "Keyboard"],
+  },
+  {
+    firstname: "Sarah",
+    lastname: "Smith",
+    age: 34,
+    gender: "female",
+    married: true,
+    purchased: ["Phone", "Charger"],
+  },
+  {
+    firstname: "Michael",
+    lastname: "Brown",
+    age: 42,
+    gender: "male",
+    married: true,
+    purchased: ["Washing Machine", "Vacuum Cleaner"],
+  },
+  {
+    firstname: "Emily",
+    lastname: "Johnson",
+    age: 7,
+    gender: "female",
+    married: false,
+    purchased: ["Shoes", "Bag", "Perfume"],
+  },
+];
+
+const isMarried = ccustomers.every((customer) => {
+  return customer.married;
+});
+
+console.log(isMarried);
+
+const anyoneUndderTen = ccustomers.find((customer) => {
+  return customer.age < 10;
+});
+
+console.log("is anyone under 10 age", anyoneUndderTen);
+
+const youngCustomerIndex = ccustomers.findLastIndex((customer) => {
+  return customer.age < 10;
+});
+
+console.log(youngCustomerIndex); //index 3
