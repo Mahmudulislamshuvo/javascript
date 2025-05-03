@@ -626,3 +626,42 @@ const logger = function (text) {
   console.log("**** I am a logger function ****");
   console.log(text);
 };
+
+{
+  const arr1 = [11, 21, 73];
+  const arr2 = new Array(7);
+
+  console.log(arr1.length); // 3
+  console.log(arr2.length); // 7
+
+  // 2 ** 32 - 1 // 4294967295
+
+  arr1.length = 9;
+  console.log(arr1);
+}
+
+// concat()
+
+{
+  const first = [1, 2, 3];
+  const second = [4, 5, 6];
+  const third = [7, 8, 9];
+
+  const merged = first.concat(second, third);
+  console.log(merged);
+
+  console.log(first); // [1, 2, 3]
+  console.log(second); // [4, 5, 6]
+
+  // array.concat(arr1, arr2,..,..,..,arrN);
+}
+
+// join()
+{
+  const emotions = ["🙂", "😍", "🙄", "😟"];
+
+  const joined = emotions.join("<=>");
+  console.log(joined);
+
+  [].join(); // return ""
+}
