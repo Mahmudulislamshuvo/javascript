@@ -665,3 +665,21 @@ const logger = function (text) {
 
   [].join(); // return ""
 }
+
+{
+  const arr = [1, 2, 3];
+
+  const result = arr.flatMap((num) => [num, num * 2]);
+  console.log(result); // [1, 2, 2, 4, 3, 6]
+
+  const print = function () {
+    const name = document.getElementById("m_name").value;
+    const wish = document.getElementById("m_wish").value;
+
+    const message =
+      "Hello " + name + ", Your wish `" + wish + "` may come true!";
+    logger(message);
+    document.getElementById("output").innerHTML =
+      '<span class="message">' + message + "</span>";
+  };
+}
