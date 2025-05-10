@@ -683,3 +683,71 @@ const logger = function (text) {
       '<span class="message">' + message + "</span>";
   };
 }
+{
+  // Find all the married customers
+
+  const totalExpense = customers
+    .filter((customer) => {
+      return customer.married;
+    })
+    .map((marriedCustomer) => {
+      return marriedCustomer.expense;
+    })
+    .reduce((accum, expense) => {
+      return accum + expense;
+    }, 0);
+
+  console.log("Total Expense of Married Customers in INR: ", totalExpense);
+
+  const arr = [1, 2, 3, 4, 5];
+
+  // forEach()
+  let sum = 0;
+  arr.forEach((elem) => {
+    sum = sum + elem;
+    //console.log(elem)
+  });
+  console.log("Sum using forEach", sum);
+
+  // entries()
+  const arrItr = arr.entries();
+  /*console.log("Array Iterator", arrItr.next().value) // [0, 1]
+console.log("Array Iterator", arrItr.next().value) // [1, 2]*/
+
+  for (const [index, element] of arrItr) {
+    console.log(index, element);
+  }
+
+  // values()
+
+  const arrItr2 = arr.values();
+
+  for (const value of arrItr2) {
+    console.log(value);
+  }
+
+  // flatMap()
+
+  const arr1 = [1, 2, 3, 4];
+
+  console.log(
+    "simple map",
+    arr1.map((item) => item * 2)
+  );
+  console.log(
+    "simple flatmap",
+    arr1.flatMap((item) => item * 2)
+  );
+
+  console.log(
+    "complex map",
+    arr1.map((item) => [item * 2])
+  ); //[[2], [4], [6],..]
+  console.log(
+    "complex flat map",
+    arr1.flatMap((item) => [item * 2])
+  );
+
+  arr1.map((item) => [[item * 2]]);
+  arr1.flatMap((item) => [[item * 2]]);
+}
