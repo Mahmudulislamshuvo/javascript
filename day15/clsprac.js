@@ -751,3 +751,30 @@ console.log("Array Iterator", arrItr.next().value) // [1, 2]*/
   arr1.map((item) => [[item * 2]]);
   arr1.flatMap((item) => [[item * 2]]);
 }
+// fromAsync()
+{
+    const collectionPromise = Array.fromAsync(
+        document.getElementsByTagName("li")
+    );
+    console.log("Converted Array", collectionPromise);
+
+    collectionPromise.then((value) => console.log(value));
+
+    const ret = Array.fromAsync({
+        0: Promise.resolve("tapaScript"),
+        1: Promise.resolve("Google"),
+        2: Promise.resolve("Apple"),
+        length: 3,
+    }).then((value) => console.log(value));
+
+    console.log(ret);
+}
+
+// of()
+{
+    const a = new Array(2, 3, 4); // [2,3,4]
+    const b = [4, 5, 6]; // [4,5,6]
+
+    const c = Array.of(2, true, "test", { name: "Alex" }, [1, 2, 3]);
+    console.log("c", c);
+}
